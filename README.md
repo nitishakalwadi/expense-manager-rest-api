@@ -1,0 +1,1 @@
+This is a expense manager developed in mean stack

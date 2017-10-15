@@ -1,0 +1,46 @@
+{
+  "name": "expense-manager",
+  "version": "1.0.0",
+  "description": "Expense manager server which exposes only the apis",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "bluebird": "~3.5.0",
+    "body-parser": "~1.15.0",
+    "connect-flash": "~0.1.1",
+    "connect-mongodb-session": "~1.3.0",
+    "cookie-parser": "~1.0.0",
+    "cors": "~2.8.1",
+    "dotenv": "~2.0.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "express-flash": "0.0.2",
+    "express-session": "~1.0.0",
+    "express-validator": "~3.0.0",
+    "jsonwebtoken": "~7.4.1",
+    "method-override": "~1.0.0",
+    "mongoose": "~4.4.13",
+    "morgan": "~1.0.1",
+    "passport": "~0.1.17",
+    "passport-facebook": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "passport-local": "~0.1.6",
+    "passport-twitter": "~1.0.2",
+    "recaptcha2": "~1.3.2",
+    "rotating-file-stream": "~1.2.2",
+    "socket.io": "~1.4.5"
+  },
+  "devDependencies": {
+    "chai": "~4.1.1",
+    "chai-http": "~3.0.0",
+    "mocha": "~3.5.0"
+  },
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "author": "Nitishkumar Akalwadi",
+  "license": "ISC",
+  "engines": {
+    "node": "4.7.3"
+  }
+}
