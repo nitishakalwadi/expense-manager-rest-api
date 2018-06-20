@@ -8,15 +8,12 @@ var projection = {
 };
 
 var userSchema = mongoose.Schema({
-    
-        username: String,
-        password: {
-            type: String,
-            select: false
-        }
-    
-},
-{
+    username: String,
+    password: {
+        type: String,
+        select: false
+    }
+}, {
     collection: collectionName,
     versionKey: false
 });

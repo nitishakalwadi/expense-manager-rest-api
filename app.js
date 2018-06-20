@@ -5,7 +5,6 @@ var path            = require('path');
 var fs              = require("fs");
 var mongoose        = require('mongoose');
 var bodyParser      = require('body-parser');
-var passport        = require('passport');
 var flash           = require('express-flash');
 var morgan          = require('morgan');
 var rfs             = require('rotating-file-stream');
@@ -34,6 +33,7 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
+// app.use( bodyParser.raw() );        // to support raw data
 
 app.use(validator());
 
@@ -54,36 +54,10 @@ app.use(morgan({
 app.use(cookieParser('keyboard cat'));
 
 //connect to mongodb via mongoose
-// mongoose.connect(process.env.DB_HOST);
 mongoose.connect(process.env.DB_HOST, { useMongoClient: true })
-
-// var store = new MongoDBStore({
-//     uri: process.env.DB_HOST,
-//     collection: 'mySessions'
-// });
-
-require(appData.rootPath + '/config/passport')(passport); // pass passport for configuration
-
-// set session - required for passport
-// app.use(session({
-//     secret: process.env.SESSION_SECRET,
-//     cookie: {
-//       maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week 
-//     },
-//     store: store,
-//     // Boilerplate options, see: 
-//     // * https://www.npmjs.com/package/express-session#resave 
-//     // * https://www.npmjs.com/package/express-session#saveuninitialized 
-//     resave: true,
-//     saveUninitialized: true
-// }));
-    
-app.use(passport.initialize());
-// app.use(passport.session()); // persistent login sessions
 
 //routes
 require(appData.rootPath + '/routes/api')(app);
-require(appData.rootPath + '/routes/web')(app);
 
 var server = app.listen(process.env.PORT);
 

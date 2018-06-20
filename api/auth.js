@@ -34,10 +34,6 @@ module.exports = {
                         }
                     };
                     var token = authHelper.createToken(data);
-                    // var token = jwt.sign(data, process.env.JWT_SECRET, {
-                    //     expiresIn: process.env.JWT_EXPIRY // expires in secs
-                    // });
-                    
                     res.json({
                         success: true,
                         data: {

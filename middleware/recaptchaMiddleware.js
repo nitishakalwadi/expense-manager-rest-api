@@ -1,5 +1,4 @@
 var config = require(global.appData.rootPath + '/config/config');
-var flash = require(global.appData.rootPath + '/lib/flash');
 
 var reCAPTCHA = require('recaptcha2');
 var recaptcha = new reCAPTCHA({
@@ -16,7 +15,6 @@ module.exports = {
         })
         .catch(function(errorCodes){
             // invalid
-            flash.failure(req, recaptcha.translateErrors(errorCodes));
             return res.redirect(req.originalUrl);
             // res.json({formSubmit:false,errors:recaptcha.translateErrors(errorCodes)});// translate error codes to human readable text
         });
@@ -30,7 +28,6 @@ module.exports = {
         })
         .catch(function(errorCodes){
             // invalid
-            // flash.failure(req, recaptcha.translateErrors(errorCodes));
             // return res.redirect(req.originalUrl);
             // res.json({formSubmit:false,errors:recaptcha.translateErrors(errorCodes)});// translate error codes to human readable text
             

@@ -12,10 +12,11 @@ describe('/GET expense', function(){
         chai.request(server)
             .get('/api/expense')
             .end(function(err, res){
+                console.log(res.body);
                 res.should.have.status(200);
-                res.body.should.be.a('array');
-                // res.body.should.have.property('success');
-                // res.body.success.should.equal(false);
+                // res.body.should.be.a('array');
+                res.body.should.have.property('success');
+                res.body.success.should.equal(false);
                 done();
             });
     });
@@ -30,6 +31,7 @@ describe('/POST expense', function(){
                 'expense': 200
             })
             .end(function(err, res){
+                console.log(res.body);
                 res.should.have.status(200);
                 done();
             });

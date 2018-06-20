@@ -21,8 +21,7 @@ var expenseSchema = mongoose.Schema({
     },
     created_at: Date,
     updated_at: Date
-},
-{
+}, {
     collection: collectionName,
     versionKey: false
 });
